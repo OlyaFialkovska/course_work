@@ -1,38 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-int main()
+const int p=3,m=3,n=4;
+void Insertion_Sorting_4(int mas[p][m][n])
 {
-    const int p=2,m=3,n=4;
-    int mas [p][m][n];
-    int k,i,j;
-
-    int b[m][n],L,R,s,r;
-
-    //Input start
-    srand(time(NULL));
-    for(k=0; k<p; k++)
-        for(i=0; i<m; i++)
-            for(j=0; j<n; j++)
-                mas[k][i][j]=rand()%20-10;
-    //Input finished
-
-    //Out start
-    printf("Start:\n");
-    for(k=0; k<p; k++)
-    {
-        for(i=0; i<m; i++)
-        {
-            for(j=0; j<n; j++)
-            {
-                printf("%d\t",mas[k][i][j]);
-            }
-            printf("\n");
-        }
-        printf("pereris %d\n",k);
-    }
-    //Out finished
-
+    int b[m][n],L,R,s,r,k,i,j;
+    //Insertion_Sorting_4 start
     for(k=0; k<p; k++)
     {
         for(i=0; i<m; i++)
@@ -43,7 +15,7 @@ int main()
         while(L<R)
         {
             s=L+((R-L)/2);
-            if(b[1][1]>=mas[s][1][1])
+            if(b[0][0]>=mas[s][0][0])
             {
                 L=s+1;
             }
@@ -61,20 +33,22 @@ int main()
                 {
                     mas[r+1][i][j]=mas[r][i][j];
                 }
-                printf("\n");
             }
-            printf("p2=%d\n",k);
         }
         for(i=0; i<m; i++)
             for(j=0; j<n; j++)
         mas[R][i][j]=b[i][j];
 
     }
-
+    //Insertion_Sorting_4 finished
+}
+void out_mas(int mas[p][m][n])
+{
+    int k,i,j;
     //Out start
-    printf("Finish:\n");
     for(k=0; k<p; k++)
     {
+        printf("pereris %d\n",k);
         for(i=0; i<m; i++)
         {
             for(j=0; j<n; j++)
@@ -83,8 +57,30 @@ int main()
             }
             printf("\n");
         }
-        printf("pereris %d\n",k);
     }
     //Out finished
+}
+int main()
+{
+
+    int mas [p][m][n];
+    int k,i,j;
+
+    //Input start
+    srand(time(NULL));
+    for(k=0; k<p; k++)
+        for(i=0; i<m; i++)
+            for(j=0; j<n; j++)
+                mas[k][i][j]=rand()%20-10;
+    //Input finished
+
+    printf("\t|Start:|\n");
+    out_mas(mas);
+
+     Insertion_Sorting_4(mas);
+
+    printf("\n\t|Finish:|\n");
+    out_mas(mas);
+
     return 0;
 }
