@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 const int p=3,m=3,n=4;
-void Insertion_Sorting_4(int mas[p][m][n])
+int mas [3][3][4];
+void Insertion_Sorting_4()
 {
     int b[m][n],L,R,s,r,k,i,j;
     //Insertion_Sorting_4 start
@@ -9,7 +10,7 @@ void Insertion_Sorting_4(int mas[p][m][n])
     {
         for(i=0; i<m; i++)
             for(j=0; j<n; j++)
-               b[i][j]=mas[k][i][j];
+                b[i][j]=mas[k][i][j];
         L=0;
         R=k;
         while(L<R)
@@ -37,12 +38,91 @@ void Insertion_Sorting_4(int mas[p][m][n])
         }
         for(i=0; i<m; i++)
             for(j=0; j<n; j++)
-        mas[R][i][j]=b[i][j];
+                mas[R][i][j]=b[i][j];
 
     }
     //Insertion_Sorting_4 finished
 }
-void out_mas(int mas[p][m][n])
+void shell_sort()
+{
+    const int T=3;
+    int h[T],b[m][n];
+    int t,k,i,j,r,l;
+
+    h[0]=4;
+    h[1]=2;
+    h[2]=1;
+
+    for(t=0; t<T; t++)
+    {
+        k=h[t];
+
+        for(l=0; l<p; l++)
+        {
+            for(i=0; i<m; i++)
+                for(j=0; j<n; j++)
+                    b[i][j]=mas[l][i][j];
+
+            r=l;
+
+            while(r>=k && b[0][0]<mas[r-k][0][0])
+            {
+                for(i=0; i<m; i++)
+                    for(j=0; j<n; j++)
+                        mas[r][i][j]=mas[r-k][i][j];
+
+                r=r-k;
+            }
+
+            for(i=0; i<m; i++)
+                for(j=0; j<n; j++)
+                    mas[r][i][j]=b[i][j];
+        }
+
+    }
+
+}
+
+void QSort(int L,int R)
+{
+    int x,b,i,j,k,r;
+    x=mas[L+(R-L)/2][0][0];
+    k=L;
+    r=R;
+
+    while(k<=r)
+    {
+        while(mas[k][0][0]<x)
+        {
+            k++;
+        }
+        while(mas[r][0][0]>x)
+        {
+            r--;
+        }
+        if(k<=r)
+        {
+            for(i=0; i<m; i++)
+                for(j=0; j<n; j++)
+                {
+                    b=mas[k][i][j];
+                    mas[k][i][j]=mas[r][i][j];
+                    mas[r][i][j]=b;
+                }
+            k++;
+            r--;
+        }
+    }
+    if(L<r)
+    {
+        QSort(L,r);
+    }
+    if(k<R)
+    {
+        QSort(k,R);
+    }
+}
+void out_mas()
 {
     int k,i,j;
     //Out start
@@ -62,10 +142,7 @@ void out_mas(int mas[p][m][n])
 }
 int main()
 {
-
-    int mas [p][m][n];
-    int k,i,j;
-
+    int k,i,j,L=0,R=p-1;
     //Input start
     srand(time(NULL));
     for(k=0; k<p; k++)
@@ -75,12 +152,14 @@ int main()
     //Input finished
 
     printf("\t|Start:|\n");
-    out_mas(mas);
+    out_mas();
 
-     Insertion_Sorting_4(mas);
+    //Insertion_Sorting_4();
+    //shell_sort();
+    //QSort(L,R);
 
     printf("\n\t|Finish:|\n");
-    out_mas(mas);
+    out_mas();
 
     return 0;
 }
