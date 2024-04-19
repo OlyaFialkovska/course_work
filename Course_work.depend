@@ -1,5 +1,66 @@
 # depslib dependency file v1.0
-1712671630 source:d:\univer\sda\course_work\main.c
+1713554022 source:d:\univer\sda\course_work\main.c
 	<stdio.h>
 	<stdlib.h>
+	"menu.h"
+
+1713385456 source:d:\univer\sda\course_work\common.c
+	"common.h"
+
+1713559037 d:\univer\sda\course_work\common.h
+
+1713385718 source:d:\univer\sda\course_work\fill_3d.c
+	<stdio.h>
+	"Common.h"
+
+1713385982 source:d:\univer\sda\course_work\fill_vect.c
+	<stdio.h>
+	<stdlib.h>
+	"Common.h"
+
+1713554013 source:d:\univer\sda\course_work\sort_3d.c
+	<time.h>
+	"Common.h"
+
+1713475393 source:d:\univer\sda\course_work\measurement.c
+	"Measurement.h"
+	"Common.h"
+	<stdio.h>
+
+1713387006 d:\univer\sda\course_work\measurement.h
+	<time.h>
+
+1713388682 source:d:\univer\sda\course_work\table.c
+	<conio.h>
+	<windows.h>
+	"menu.h"
+	"Measurement.h"
+	"Common.h"
+
+1713388396 source:d:\univer\sda\course_work\sort_vect.c
+	"time.h"
+	"Common.h"
+
+1712760162 d:\univer\sda\course_work\common.c
+
+1712756363 d:\univer\sda\course_work\fill_vect.h
+
+1712756503 d:\univer\sda\course_work\fill_3d.h
+
+1713297788 d:\univer\sda\course_work\sort_vect.h
+
+1713300590 d:\univer\sda\course_work\sort_3d.h
+
+1713557094 source:d:\univer\sda\course_work\menu.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<windows.h>
+	"Table.h"
+	"Common.h"
+	"Measurement.h"
+
+1713388790 d:\univer\sda\course_work\menu.h
+
+1713426779 d:\univer\sda\course_work\table.h
 
