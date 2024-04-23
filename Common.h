@@ -1,10 +1,10 @@
 #ifndef COMMON_H_INCLUDED
 #define COMMON_H_INCLUDED
 
-#define cross 80 // Number of "sections" in the 3D array
-#define row 30 // The number of rows in a three-dimensional array
-#define column 20 // Number of columns in the 3D array
-#define arr_n 100000 // Size of vector array
+#define cross 8 // Number of "sections" in the 3D array
+#define row 3 // The number of rows in a three-dimensional array
+#define column 2 // Number of columns in the 3D array
+#define arr_n 14 // Size of vector array
 int *** mas; // 3D array
 int arr [arr_n]; // Vector array
 
